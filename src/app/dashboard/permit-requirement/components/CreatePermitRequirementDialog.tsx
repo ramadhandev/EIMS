@@ -60,21 +60,19 @@ const [errors, setErrors] = useState<PermitRequirementErrors>({});
     }
   }, [open]);
 
-  const fetchCardTypes = async () => {
-    try {
-      // Anda perlu membuat API untuk get card types atau gunakan mock data
-      const mockCardTypes: CardType[] = [
-        { cardTypeId: 1, name: "Kartu Hot Work" },
-        { cardTypeId: 2, name: "Kartu Working at Height" },
-        { cardTypeId: 3, name: "Kartu Confined Space" },
-        { cardTypeId: 4, name: "Kartu Electrical" },
-        { cardTypeId: 5, name: "Kartu APD" }
-      ];
-      setCardTypes(mockCardTypes);
-    } catch (error) {
-      console.error("Failed to fetch card types:", error);
+ const fetchCardTypes = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cardType`);
+    if (!res.ok) {
+      throw new Error("Gagal fetch card types");
     }
-  };
+    const data: CardType[] = await res.json();
+    setCardTypes(data);
+  } catch (error) {
+    console.error("Failed to fetch card types:", error);
+  }
+};
+
 
   const validateForm = (): boolean => {
     const newErrors: PermitRequirementErrors = {};

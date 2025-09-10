@@ -15,6 +15,7 @@ import { MoreVertical, Plus } from "lucide-react";
 import CreateCardDialog from "./components/CreateCardDialog";
 import UpdateCardDialog from "./components/UpdateCardDialog";
 import DeleteCardDialog from "./components/DeleteCardDialog";
+import PrintCardDialog from "./components/PrintCardDialog";
 
 interface HSECard {
   cardId: number;
@@ -209,6 +210,9 @@ export default function HSECardsPage() {
                               </DropdownMenuItem>
                               <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
                                 <DeleteCardDialog card={card} onCardDeleted={fetchCards} />
+                              </DropdownMenuItem>
+                             <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+                              <PrintCardDialog card={card} />
                               </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>

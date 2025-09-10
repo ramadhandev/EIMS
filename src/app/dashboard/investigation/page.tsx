@@ -221,8 +221,7 @@ export default function InvestigationsPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b bg-muted/50">
-                      <th className="p-4 text-left font-medium">ID</th>
-                      <th className="p-4 text-left font-medium">ID Insiden</th>
+                     
                       <th className="p-4 text-left font-medium">Petugas HSE</th>
                       <th className="p-4 text-left font-medium">Penyebab Utama</th>
                       <th className="p-4 text-left font-medium">Tindakan Korektif</th>
@@ -235,8 +234,7 @@ export default function InvestigationsPage() {
                   <tbody>
                     {paginatedInvestigations.map((investigation) => (
                       <tr key={investigation.investigationId} className="border-b hover:bg-muted/50">
-                        <td className="p-4 font-medium">{investigation.investigationId}</td>
-                        <td className="p-4">{investigation.incidentId}</td>
+                      
                         <td className="p-4">{investigation.hseOfficerName}</td>
                         <td className="p-4 max-w-xs truncate">{investigation.rootCause || "-"}</td>
                         <td className="p-4 max-w-xs truncate">{investigation.correctiveAction || "-"}</td>

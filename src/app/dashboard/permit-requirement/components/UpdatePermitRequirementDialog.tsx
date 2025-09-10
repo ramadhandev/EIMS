@@ -61,20 +61,18 @@ export default function UpdatePermitRequirementDialog({
     }
   }, [open, requirement]);
 
-  const fetchCardTypes = async () => {
-    try {
-      const mockCardTypes: CardType[] = [
-        { cardTypeId: 1, name: "Kartu Hot Work" },
-        { cardTypeId: 2, name: "Kartu Working at Height" },
-        { cardTypeId: 3, name: "Kartu Confined Space" },
-        { cardTypeId: 4, name: "Kartu Electrical" },
-        { cardTypeId: 5, name: "Kartu APD" }
-      ];
-      setCardTypes(mockCardTypes);
-    } catch (error) {
-      console.error("Failed to fetch card types:", error);
+   const fetchCardTypes = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cardType`);
+    if (!res.ok) {
+      throw new Error("Gagal fetch card types");
     }
-  };
+    const data: CardType[] = await res.json();
+    setCardTypes(data);
+  } catch (error) {
+    console.error("Failed to fetch card types:", error);
+  }
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

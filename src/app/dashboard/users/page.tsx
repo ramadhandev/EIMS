@@ -206,7 +206,7 @@ export default function UsersPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b bg-muted/50">
-                      <th className="p-4 text-left font-medium">ID</th>
+                   
                       <th className="p-4 text-left font-medium">Nama</th>
                       <th className="p-4 text-left font-medium">Email</th>
                       <th className="p-4 text-left font-medium">Peran</th>
@@ -219,7 +219,7 @@ export default function UsersPage() {
                   <tbody>
                     {paginatedUsers.map((user) => (
                       <tr key={user.userId} className="border-b hover:bg-muted/50">
-                        <td className="p-4 font-medium">{user.userId}</td>
+                        
                         <td className="p-4">{user.name}</td>
                         <td className="p-4">{user.email}</td>
                         <td className="p-4">{user.role}</td>

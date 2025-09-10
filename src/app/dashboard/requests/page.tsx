@@ -321,8 +321,7 @@ export default function ApprovalsPage() {
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b bg-muted/50">
-                      <th className="p-4 text-left font-medium">ID</th>
-                      <th className="p-4 text-left font-medium">ID Permit</th>
+                      
                       <th className="p-4 text-left font-medium">Penyetuju</th>
                       <th className="p-4 text-left font-medium">Peran</th>
                       <th className="p-4 text-left font-medium">Keputusan</th>
@@ -334,8 +333,7 @@ export default function ApprovalsPage() {
                   <tbody>
                     {paginatedApprovals.map((approval) => (
                       <tr key={approval.approvalId} className="border-b hover:bg-muted/50">
-                        <td className="p-4 font-medium">{approval.approvalId}</td>
-                        <td className="p-4">{approval.permitId}</td>
+                        
                         <td className="p-4">{approval.approverName}</td>
                         <td className="p-4">{approval.role}</td>
                         <td className="p-4">
